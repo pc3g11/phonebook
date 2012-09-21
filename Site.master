@@ -1,0 +1,74 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 951px;
+        }
+    </style>
+</head>
+<body background="backround2.jpg"  
+    style="background-position:center; background-repeat:repeat;">
+    <form runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Southampton phone book
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                         [ <a href="~/Account/Register.aspx" ID="A1" runat="server">Register</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" OnMenuItemClick="NavigationMenu_MenuItemClick"  >
+                    <Items>
+                        <asp:MenuItem  Text="Home"  tooltip="Home"/>
+                        <asp:MenuItem  Text="MyAccount"/>
+                        <asp:MenuItem  Text="About"/>
+                        <asp:MenuItem Text="Search"  />
+                        
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder    ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+            <br />
+        </div>
+       
+      
+ 
+    </div>
+            <div class="page2" >
+                            <table style="width: 960px" >
+      <tr align="center">
+      <td align="center">Copyright © 2012 - All Rights Reserved - www.southampton.ac.uk
+      </td>
+      </tr>
+      </table>
+    </div>
+
+    </form>
+
+</body>
+</html>
